@@ -12,6 +12,8 @@ TagManager:
   - FxTemporaire
   - Dno
   - Mine
+  - Smoke
+  - Bomb
   layers:
   - Default
   - TransparentFX

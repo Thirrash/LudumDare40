@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Rocket : MonoBehaviour
 {
+    public bool typ;
+    public bool dg = false;
     public float damage = 4.0f;
     public float explosionRange = 3.0f;
     public GameObject explosion;
@@ -18,16 +20,22 @@ public class Rocket : MonoBehaviour
     }
 
     private void Start() {
+        dg = false;
         blink = GameObject.FindGameObjectWithTag("Blink");
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.layer == 9 && !bHasCollided)
             Blow();
+        else if(!typ)
+        {
+            Blow();
+        }
     }
 
     private void Blow() {
-        model.SetActive(false);
+        if(typ)
+            model.SetActive(false);
         Destroy(rigid);
         bHasCollided = true;
         Destroy(GetComponent<FollowShip>());
@@ -35,6 +43,7 @@ public class Rocket : MonoBehaviour
 
         Collider[] floaters = Physics.OverlapSphere(transform.position, explosionRange, 1 << 9, QueryTriggerInteraction.Collide);
         foreach (Collider c in floaters) {
+            dg = true;
             float dist = (c.transform.position - transform.position).magnitude;
             float dmg = Mathf.Clamp(dist / explosionRange, 0.0f, 1.0f);
 
@@ -56,18 +65,19 @@ public class Rocket : MonoBehaviour
     }
     private IEnumerator Blink()
     {
-        blink.GetComponent<RawImage>().color = new Color(255, 255, 255, 1);
+        if(dg)
+            blink.GetComponent<RawImage>().color = new Color(255, 255, 255, 1);
         yield return new WaitForSeconds(1.0f);
 
     }
     private IEnumerator Destruction() {
         float time = 0.0f;
         while (time < 2.0f) {
-            blink.GetComponent<RawImage>().color = new Color(255, 255, 255, (1.0f - time / 2.0f));
+            if(dg)
+                blink.GetComponent<RawImage>().color = new Color(255, 255, 255, (1.0f - time / 2.0f));
             time += Time.deltaTime;
             yield return null;
         }
-        
         Destroy(gameObject);
     }
 }
