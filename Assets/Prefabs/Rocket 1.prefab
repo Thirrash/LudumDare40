@@ -1299,7 +1299,7 @@ MonoBehaviour:
   explosionRange: 2
   explosion: {fileID: 1989315170574996}
   model: {fileID: 1568689614156082}
-  blink: {fileID: 1959137855390500, guid: 67714622deef5f3498cc134cda929035, type: 2}
+  blink: {fileID: 0}
 --- !u!135 &135900941027218802
 SphereCollider:
   m_ObjectHideFlags: 1

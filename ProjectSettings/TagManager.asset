@@ -8,6 +8,7 @@ TagManager:
   - Tresure
   - Radar
   - Ship
+  - Blink
   layers:
   - Default
   - TransparentFX
