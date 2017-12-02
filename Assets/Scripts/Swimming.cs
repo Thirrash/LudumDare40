@@ -29,10 +29,10 @@ public class Swimming : MonoBehaviour
             rigid.AddTorque(Vector3.up * (bal.CurrentHp / bal.MaxHp) * torqueSide);
         }
         if (Input.GetKey(KeyCode.Space)) {
-            rigid.AddForce(transform.up * (bal.CurrentHp / bal.MaxHp) * forceUp);
+            rigid.AddForce(Vector3.up * (bal.CurrentHp / bal.MaxHp) * forceUp);
         }
         if (Input.GetKey(KeyCode.LeftShift)) {
-            rigid.AddForce(-transform.up * (bal.CurrentHp / bal.MaxHp) * forceUp);
+            rigid.AddForce(-Vector3.up * (bal.CurrentHp / bal.MaxHp) * forceUp);
         }
 
         //rigid.rotation = Quaternion.Euler(rigid.rotation.eulerAngles.x, rigid.rotation.eulerAngles.y, 0.0f);

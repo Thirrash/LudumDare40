@@ -505,7 +505,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890289763627946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3145928, y: 0.76533604, z: 14.116146}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4177254144752310}
@@ -682,7 +682,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472567440849256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.65, y: 11.5, z: 33.18}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4138322700141166}
@@ -751,7 +751,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1301883257515102}
   m_LocalRotation: {x: 0.46193916, y: -0.33141324, z: 0.19134109, w: 0.80010384}
-  m_LocalPosition: {x: 8.11, y: 15.03, z: 7.65}
+  m_LocalPosition: {x: 5.39, y: 15.03, z: -6.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4507921117167960}
@@ -1897,7 +1897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 5
-  forceUp: 1
+  forceUp: 2
   torqueSide: 1
 --- !u!114 &114424882903344308
 MonoBehaviour:
@@ -1990,7 +1990,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d17e2d15e10d143b66682ef4435d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateRate: 0.2
+  MaxDrownSpeed: 0.3
+  RotateRate: 1
   Length: 5
   rigidbody: {fileID: 0}
   ballastObj: {fileID: 1352872620337748}

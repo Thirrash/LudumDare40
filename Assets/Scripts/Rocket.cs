@@ -57,9 +57,13 @@ public class Rocket : MonoBehaviour
 
     }
     private IEnumerator Destruction() {
-        yield return new WaitForSeconds(2.0f);
+        float time = 0.0f;
+        while (time < 2.0f) {
+            blink.GetComponent<RawImage>().color = new Color(255, 255, 255, (1.0f - time / 2.0f));
+            time += Time.deltaTime;
+            yield return null;
+        }
         
         Destroy(gameObject);
-        blink.GetComponent<RawImage>().color = new Color(255, 255, 255, 0);
     }
 }

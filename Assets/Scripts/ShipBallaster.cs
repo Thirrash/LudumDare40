@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipBallaster : MonoBehaviour
 {
+    public float MaxDrownSpeed = 0.5f;
     public float RotateRate = 0.4f;
     public float Length = 5.0f;
     public Rigidbody rigidbody;
@@ -66,5 +67,7 @@ public class ShipBallaster : MonoBehaviour
 
         rigidbody.MoveRotation(Quaternion.RotateTowards(rigidbody.rotation, goal, RotateRate));
         prevRotation = rigidbody.rotation;
+
+        rigidbody.MovePosition(rigidbody.position - Vector3.up * MaxDrownSpeed * multiplier);
     }
 }

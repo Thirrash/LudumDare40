@@ -19,6 +19,6 @@ public class FollowShip : MonoBehaviour
 
     void LateUpdate() {
         rigid.MovePosition(Vector3.MoveTowards(transform.position, player.transform.position, speed));
-        rigid.MoveRotation(Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(0.0f, player.transform.position - transform.position), MaxRotation));
+        rigid.MoveRotation(Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), MaxRotation));
     }
 }
