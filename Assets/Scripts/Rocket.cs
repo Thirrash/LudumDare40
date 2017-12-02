@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Rocket : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Rocket : MonoBehaviour
     public float explosionRange = 3.0f;
     public GameObject explosion;
     public GameObject model;
-    public GameObject blink;
+    public static GameObject blink;
     private Rigidbody rigid;
     private bool bHasCollided = false;
 
@@ -17,16 +18,16 @@ public class Rocket : MonoBehaviour
     }
 
     private void Start() {
-
+        blink = GameObject.FindGameObjectWithTag("Blink");
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.layer == 9 && !bHasCollided)
             Blow();
+        }
     }
 
     private void Blow() {
-        blink.SetActive(true);
         model.SetActive(false);
         Destroy(rigid);
         bHasCollided = true;
@@ -50,15 +51,16 @@ public class Rocket : MonoBehaviour
         StartCoroutine(Blink());
         StartCoroutine(Destruction());
     }
-    
-    private IEnumerator Destruction() {
-        yield return new WaitForSeconds(2.0f);
-        Destroy(gameObject);
-    }
-
     private IEnumerator Blink()
     {
+        blink.GetComponent<RawImage>().color = new Color(255, 255, 255, 1);
         yield return new WaitForSeconds(1.0f);
-        blink.SetActive(false);
+
+    }
+    private IEnumerator Destruction() {
+        yield return new WaitForSeconds(2.0f);
+        
+        Destroy(gameObject);
+        blink.GetComponent<RawImage>().color = new Color(255, 255, 255, 0);
     }
 }
