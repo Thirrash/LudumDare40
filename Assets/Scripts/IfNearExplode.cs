@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class IfNearExplode : MonoBehaviour
 {
+    public float damage = 6.0f;
+    public float explosionRange;
     public GameObject Ship;
     public GameObject Explosives;
     public float range;
     // Use this for initialization
     void Start()
     {
+        explosionRange = range + 0.2f;
         Ship = GameObject.FindGameObjectWithTag("Ship");
     }
 
@@ -24,6 +27,23 @@ public class IfNearExplode : MonoBehaviour
 
     void Explode()
     {
+        Collider[] floaters = Physics.OverlapSphere(transform.position, explosionRange, 1 << 9, QueryTriggerInteraction.Collide);
+        foreach (Collider c in floaters)
+        {
+            float dist = (c.transform.position - transform.position).magnitude;
+            Ballast bal = c.GetComponent<Ballast>();
+            if (bal != null)
+                bal.CurrentHp -= damage * dist / explosionRange;
+
+            ShipBallaster shipBal = c.GetComponent<ShipBallaster>();
+            if (shipBal != null)
+            {
+                shipBal.CurrentHp -= damage * Mathf.Clamp(dist / explosionRange, 0.0f, 1.0f);
+            }
+            Debug.Log(c.gameObject.name + "|" + (damage * dist / explosionRange));
+        }
+
+
         Explosives.SetActive(true);
         StartCoroutine(Destruction());
     }
