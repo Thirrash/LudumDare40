@@ -15,7 +15,21 @@ public class ShipBallaster : MonoBehaviour
     private float sumCurrHp = 0.0f;
     private float sumMaxHp = 0.0f;
 
+    public float MaxHp = 100.0f;
+    public float CurrentHp {
+        get { return currentHp; }
+        set {
+            currentHp = value;
+            if (currentHp < 0.0f) {
+                currentHp = 0.0f;
+                GetComponent<Collider>().enabled = false;
+            }
+        }
+    }
+    [SerializeField] private float currentHp;
+
     void Start() {
+        CurrentHp = MaxHp;
         rigidbody = GetComponent<Rigidbody>();
         Vector3 newCenter = Vector3.zero;
         foreach (Ballast b in ballastObj.GetComponentsInChildren<Ballast>()) {
@@ -46,9 +60,11 @@ public class ShipBallaster : MonoBehaviour
             sumCurrHp += b.CurrentHp;
         }
 
-        total *= ((sumMaxHp - sumCurrHp) * (sumMaxHp - sumCurrHp) / sumMaxHp / sumMaxHp);
-        goal = rigidbody.rotation * Quaternion.Euler(total);
+        float multiplier = ((sumMaxHp - sumCurrHp) * (sumMaxHp - sumCurrHp) / sumMaxHp / sumMaxHp);
+        total *= multiplier;
+        goal = Quaternion.Euler(0.0f, rigidbody.rotation.eulerAngles.y, 0.0f) * Quaternion.Euler(total);
 
-        rigidbody.MoveRotation(Quaternion.RotateTowards(rigidbody.rotation, goal, 0.4f));
+        rigidbody.MoveRotation(Quaternion.RotateTowards(rigidbody.rotation, goal, RotateRate));
+        prevRotation = rigidbody.rotation;
     }
 }
