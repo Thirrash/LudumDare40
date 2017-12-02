@@ -1898,6 +1898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 5
   forceUp: 2
+  sila: 0
   torqueSide: 1
 --- !u!114 &114424882903344308
 MonoBehaviour:
