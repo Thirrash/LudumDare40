@@ -11,6 +11,7 @@ TagManager:
   - Blink
   - FxTemporaire
   - Dno
+  - Mine
   layers:
   - Default
   - TransparentFX
