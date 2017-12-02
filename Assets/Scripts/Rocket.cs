@@ -8,7 +8,7 @@ public class Rocket : MonoBehaviour {
     public float time = 0.0f;
     private GameObject ship;
     public GameObject explosion;
-    MeshRenderer MeshComponent;
+    public GameObject model;
     // Use this for initialization
     void Start () {
         ship = GameObject.FindGameObjectWithTag("Ship");
@@ -16,7 +16,6 @@ public class Rocket : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        MeshComponent= gameObject.GetComponent<MeshRenderer>();
         transform.Translate(speed,0,0);
         if(Vector3.Distance(transform.position,ship.transform.position)<=range)
         {
@@ -35,7 +34,7 @@ public class Rocket : MonoBehaviour {
 
     void Blow()
     {
-        MeshComponent.GetComponent<Renderer>().enabled = false;
+        model.SetActive(false);
         speed = 0;
         explosion.SetActive(true);
     }
