@@ -15,7 +15,7 @@ public class Swimming : MonoBehaviour {
 	void Update () {
 		if(Input.GetKey(KeyCode.W))
         {
-
+            lodz.transform.Translate(1, 0, 0);
         }
         if (Input.GetKey(KeyCode.S))
         {
