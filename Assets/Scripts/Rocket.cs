@@ -6,7 +6,6 @@ public class Rocket : MonoBehaviour
 {
     public float damage = 8.0f;
     public float explosionRange = 3.0f;
-    public float speed = 0.1f;
     public GameObject explosion;
     public GameObject model;
     public GameObject blink;
@@ -17,7 +16,7 @@ public class Rocket : MonoBehaviour
     }
 
     private void Start() {
-        rigid.velocity = new Vector3(speed, 0.0f, 0.0f);
+
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -28,13 +27,16 @@ public class Rocket : MonoBehaviour
     private void Blow() {
         blink.SetActive(true);
         model.SetActive(false);
-        rigid.velocity = Vector3.zero;
+        Destroy(rigid);
+        Destroy(GetComponent<FollowShip>());
         explosion.SetActive(true);
 
         Collider[] floaters = Physics.OverlapSphere(transform.position, explosionRange, 1 << 9, QueryTriggerInteraction.Collide);
         foreach (Collider c in floaters) {
             float dist = (c.transform.position - transform.position).magnitude;
             c.GetComponent<Ballast>().CurrentHp -= damage * dist / explosionRange;
+            Debug.Log(damage * dist / explosionRange);
+            Debug.Log(dist);
         }
 
         StartCoroutine(Blink());
@@ -42,7 +44,7 @@ public class Rocket : MonoBehaviour
     }
     
     private IEnumerator Destruction() {
-        yield return new WaitForSeconds(6.0f);
+        yield return new WaitForSeconds(2.0f);
         Destroy(gameObject);
     }
 

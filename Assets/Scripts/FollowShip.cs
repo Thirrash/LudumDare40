@@ -3,21 +3,22 @@ using System.Collections;
 
 public class FollowShip : MonoBehaviour
 {
+    public float speed = 1.0f;
+    public float MaxRotation = 0.3f;
+    public GameObject player;
 
-    public GameObject player;       //Public variable to store a reference to the player game object
-    private Vector3 offset;         //Private variable to store the offset distance between the player and camera
+    private Rigidbody rigid;
 
-    // Use this for initialization
-    void Start()
-    {
-        //Calculate and store the offset value by getting the distance between the player's position and camera's position.
-        offset = transform.position - player.transform.position;
+    private void Awake() {
+        rigid = GetComponent<Rigidbody>();
     }
 
-    // LateUpdate is called after Update each frame
-    void LateUpdate()
-    {
-        // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-        transform.position = player.transform.position + offset;
+    void Start() {
+
+    }
+
+    void LateUpdate() {
+        rigid.MovePosition(Vector3.MoveTowards(transform.position, player.transform.position, speed));
+        rigid.MoveRotation(Quaternion.RotateTowards(transform.rotation, player.transform.rotation, MaxRotation));
     }
 }

@@ -223,9 +223,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4843304656362488}
   - component: {fileID: 33657881729021192}
-  - component: {fileID: 135569476726416958}
+  - component: {fileID: 135900941027218802}
+  - component: {fileID: 114309778740947216}
   - component: {fileID: 114775606225828194}
-  - component: {fileID: 54885294248347368}
+  - component: {fileID: 54847342969840696}
   m_Layer: 0
   m_Name: Rocket 1
   m_TagString: Rocket
@@ -501,7 +502,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1766538687249154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.45, y: 13.46, z: 13.45}
+  m_LocalPosition: {x: 7.4558315, y: 0, z: 39.812508}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4659615509728884}
@@ -1088,7 +1089,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1381278414930276}
   m_Mesh: {fileID: 4300004, guid: 7923ecca106804505a8c319ceea22748, type: 3}
---- !u!54 &54885294248347368
+--- !u!54 &54847342969840696
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1262,8 +1263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 774c6fe16d827fe4685d1a5d46eb00cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 2
-  Force: 50
+  Radius: 3
+  Force: 0
 --- !u!114 &114206720531862350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1288,6 +1289,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Light: {fileID: 108955721232953762}
+--- !u!114 &114309778740947216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766538687249154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88e92cfd4023764dbffed908933bccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.1
+  MaxRotation: 0.3
+  player: {fileID: 0}
 --- !u!114 &114775606225828194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1300,8 +1315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 8
-  explosionRange: 3
-  speed: 0.5
+  explosionRange: 2
   explosion: {fileID: 1989315170574996}
   model: {fileID: 1568689614156082}
 --- !u!135 &135235545960618328
@@ -1316,7 +1330,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135569476726416958
+--- !u!135 &135900941027218802
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
