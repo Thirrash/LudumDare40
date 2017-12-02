@@ -12,8 +12,10 @@ public class Ballast : MonoBehaviour
         get { return currentHp; }
         set {
             currentHp = value;
-            if (currentHp < 0.0f)
+            if (currentHp < 0.0f) {
                 currentHp = 0.0f;
+                GetComponent<SphereCollider>().enabled = false;
+            }
         }
     }
 
