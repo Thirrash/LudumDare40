@@ -17,7 +17,7 @@ public class HookTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Treasure")
+        if (other.gameObject.tag == "Tresure")
         {
             GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             OnTreasureGrabbedEvent.Invoke(other.gameObject);
