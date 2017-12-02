@@ -9,6 +9,7 @@ public class Rocket : MonoBehaviour
     public float speed = 0.1f;
     public GameObject explosion;
     public GameObject model;
+    public GameObject blink;
     private Rigidbody rigid;
 
     void Awake() {
@@ -25,6 +26,7 @@ public class Rocket : MonoBehaviour
     }
 
     private void Blow() {
+        blink.SetActive(true);
         model.SetActive(false);
         rigid.velocity = Vector3.zero;
         explosion.SetActive(true);
@@ -35,11 +37,18 @@ public class Rocket : MonoBehaviour
             c.GetComponent<Ballast>().CurrentHp -= damage * dist / explosionRange;
         }
 
+        StartCoroutine(Blink());
         StartCoroutine(Destruction());
     }
     
     private IEnumerator Destruction() {
-        yield return new WaitForSeconds(7.0f);
+        yield return new WaitForSeconds(6.0f);
         Destroy(gameObject);
+    }
+
+    private IEnumerator Blink()
+    {
+        yield return new WaitForSeconds(1.0f);
+        blink.SetActive(false);
     }
 }
