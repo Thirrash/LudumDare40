@@ -9,8 +9,8 @@ public class Radar : MonoBehaviour {
        
 	// Use this for initialization
 	void Start () {
-        Rockets = GameObject.FindGameObjectsWithTag("rocket");
-        Rockets = GameObject.FindGameObjectsWithTag("tresure");
+        Rockets = GameObject.FindGameObjectsWithTag("Rocket");
+        Rockets = GameObject.FindGameObjectsWithTag("Tresure");
     }
 
     // Update is called once per frame
