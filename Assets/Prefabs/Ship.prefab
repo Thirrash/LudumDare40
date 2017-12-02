@@ -11,6 +11,23 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1472567440849256}
   m_IsPrefabParent: 1
+--- !u!1 &1012425363727268
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4420223714115678}
+  - component: {fileID: 114359215301515384}
+  - component: {fileID: 135657614674582644}
+  m_Layer: 0
+  m_Name: Hook
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1089105983922372
 GameObject:
   m_ObjectHideFlags: 1
@@ -493,6 +510,7 @@ Transform:
   m_Children:
   - {fileID: 4177254144752310}
   - {fileID: 4659717534699166}
+  - {fileID: 4420223714115678}
   m_Father: {fileID: 4507921117167960}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -599,6 +617,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4458641283900248}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4420223714115678
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1012425363727268}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4138322700141166}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4458641283900248
 Transform:
@@ -1837,6 +1868,23 @@ MonoBehaviour:
   Mass: 1
   MaxHp: 10
   currentHp: 0
+--- !u!114 &114359215301515384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1012425363727268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8984f7bacfeb1409814eb9514e4ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProjectileTemplate: {fileID: 1520355813724878, guid: 61e651b9d21312249ac5de279cb6e972,
+    type: 2}
+  Target: {x: 0, y: -1, z: 0}
+  ForceValue: 50
+  Drag: 10
+  PullForceValue: 100
 --- !u!114 &114423781503255188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2158,6 +2206,18 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135657614674582644
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1012425363727268}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135683421817139124
 SphereCollider:

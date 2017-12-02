@@ -35,10 +35,8 @@ public class ChainShoot : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("chuj");
         if(other.gameObject == projectile)
         {
-            Debug.Log("XD");
             projectile.transform.SetParent(this.transform);
             loaded = true;
             projectile.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
