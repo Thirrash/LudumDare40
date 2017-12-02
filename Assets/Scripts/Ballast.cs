@@ -18,7 +18,7 @@ public class Ballast : MonoBehaviour
     }
 
     private Rigidbody rigidbody;
-    private float currentHp;
+    [SerializeField] private float currentHp;
 
     public Vector3 GetRotation() {
         return new Vector3(MaxRotX * (1.0f - CurrentHp / MaxHp), 0.0f, MaxRotZ * (1.0f - CurrentHp / MaxHp));

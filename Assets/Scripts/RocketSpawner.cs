@@ -7,9 +7,11 @@ public class RocketSpawner : MonoBehaviour
     public GameObject RocketPrefab;
     public float SpawnOffset = 2.0f;
     public Vector3[] spawnRange = new Vector3[2];
+    private GameObject PlayerShip;
 
     void Start() {
-
+        PlayerShip = GameObject.FindGameObjectWithTag("Ship");
+        StartCoroutine(Spawn());
     }
 
     void Update() {
@@ -26,6 +28,7 @@ public class RocketSpawner : MonoBehaviour
             );
 
             GameObject go = GameObject.Instantiate(RocketPrefab, spawnPoint, Quaternion.identity);
+            go.GetComponent<FollowShip>().player = PlayerShip;
         }
     }
 }
