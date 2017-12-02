@@ -8,8 +8,17 @@ public class Ballast : MonoBehaviour
     public float MaxRotZ = 0.0f;
     public float Mass = 1.0f;
     public float MaxHp = 10.0f;
-    public float CurrentHp;
+    public float CurrentHp {
+        get { return currentHp; }
+        set {
+            currentHp = value;
+            if (currentHp < 0.0f)
+                currentHp = 0.0f;
+        }
+    }
+
     private Rigidbody rigidbody;
+    private float currentHp;
 
     public Vector3 GetRotation() {
         return new Vector3(MaxRotX * (1.0f - CurrentHp / MaxHp), 0.0f, MaxRotZ * (1.0f - CurrentHp / MaxHp));

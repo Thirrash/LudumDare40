@@ -32,7 +32,13 @@ public class Swimming : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift)) {
             rigid.AddTorque(transform.right * torqueUp);
         }
+        if (Input.GetKey(KeyCode.Q)) {
+            rigid.AddTorque(transform.forward * torqueUp);
+        }
+        if (Input.GetKey(KeyCode.E)) {
+            rigid.AddTorque(-transform.forward * torqueUp);
+        }
 
-        rigid.rotation = Quaternion.Euler(rigid.rotation.eulerAngles.x, rigid.rotation.eulerAngles.y, 0.0f);
+        //rigid.rotation = Quaternion.Euler(rigid.rotation.eulerAngles.x, rigid.rotation.eulerAngles.y, 0.0f);
     }
 }
