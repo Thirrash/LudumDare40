@@ -13,23 +13,22 @@ public class ChainShoot : MonoBehaviour {
 
     private GameObject projectile;
     private Vector3 forceVector;
-    private bool treasureHeld;
+    private bool treasureHeld = false;
     private bool loaded = true;
 
     void Start ()
     {
-        projectile = GameObject.Instantiate(ProjectileTemplate);
-        projectile.GetComponent<HookTrigger>().OnTreasureGrabbedEvent += (GameObject o) => { treasureHeld = true; };
-        projectile.transform.position = transform.position;
-        Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
-        projectileRigidbody.drag = Drag;
     }
 	
-    void Shoot()
+    void Shoot(Vector3 aDirection)
     {
-        forceVector = Vector3.Normalize(Target) * ForceValue;
+        projectile = Instantiate(ProjectileTemplate);
+        projectile.transform.position = transform.position - new Vector3(0, 5, 0);
+        projectile.GetComponent<Rigidbody>().drag = Drag;
+        projectile.GetComponent<HookTrigger>().OnTreasureGrabbedEvent += (GameObject o) => { treasureHeld = true; };
+
+        forceVector = Vector3.Normalize(aDirection) * ForceValue;
         projectile.GetComponent<Rigidbody>().AddForce(forceVector);
-        projectile.transform.parent = null;
         loaded = false;
     }
 
@@ -37,9 +36,8 @@ public class ChainShoot : MonoBehaviour {
     {
         if(other.gameObject == projectile)
         {
-            projectile.transform.SetParent(this.transform);
+            Destroy(projectile);
             loaded = true;
-            projectile.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
     }
 
@@ -52,9 +50,14 @@ public class ChainShoot : MonoBehaviour {
             toBase = Vector3.Normalize(toBase);
             projectile.GetComponent<Rigidbody>().AddForce(toBase * PullForceValue);
         }
-        if(loaded && Input.GetKeyDown(KeyCode.Space))
+        if(loaded && Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(ray, out hit))
+            {
+                Shoot(hit.point-transform.position);
+            }
         }
     }
 
