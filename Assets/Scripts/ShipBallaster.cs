@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipBallaster : MonoBehaviour
 {
+    public float RotateRate = 0.4f;
     public float Length = 5.0f;
     public Rigidbody rigidbody;
     public GameObject ballastObj;
@@ -46,8 +47,8 @@ public class ShipBallaster : MonoBehaviour
         }
 
         total *= ((sumMaxHp - sumCurrHp) * (sumMaxHp - sumCurrHp) / sumMaxHp / sumMaxHp);
-        goal = Quaternion.Euler(total);
+        goal = rigidbody.rotation * Quaternion.Euler(total);
 
-        rigidbody.MoveRotation(goal);
+        rigidbody.MoveRotation(Quaternion.RotateTowards(rigidbody.rotation, goal, 0.4f));
     }
 }
