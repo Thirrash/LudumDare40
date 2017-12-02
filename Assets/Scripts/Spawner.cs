@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour {
     public GameObject Ting;
     private Terrain ter;
     private float hardness=1;
+    public List<GameObject> tings = new List<GameObject>();
     int size = 0;
     public int differ = 3;
     private float[] points = new float[2];
@@ -18,26 +19,28 @@ public class Spawner : MonoBehaviour {
     void Start () {
         Teren = GameObject.FindGameObjectWithTag("Dno");
         ter = Teren.GetComponent<Terrain>();
-
         minx = ter.transform.position.x;
         minz = ter.transform.position.z;
         maxx = minx + ter.terrainData.size.x;
         maxz = minz + ter.terrainData.size.z;
     }
-	
-	// Update is called once per frame
-	void Update () {
-        while (size < differ* hardness)
+
+    // Update is called once per frame
+    void Update() {
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag(Ting.tag))
         {
-            size++;
+            tings.Add(g);
+        }
+        while (tings.Count < differ* hardness)
+        {
             Instantiate(Ting, new Vector3(Random.Range(minx,maxx),ter.transform.position.y+highOffset, Random.Range(minz, maxz)), Quaternion.identity);
             break;
         }
-        while (size > differ * hardness)
+        while (tings.Count > differ * hardness)
         {
-            size--;
             Destroy(GameObject.FindWithTag(Ting.tag));
             break;
         }
+        tings.Clear();
     }
 }
