@@ -8,6 +8,7 @@ public class Rocket : MonoBehaviour
     public float explosionRange = 3.0f;
     public GameObject explosion;
     public GameObject model;
+    public GameObject blink;
     private Rigidbody rigid;
 
     void Awake() {
@@ -24,6 +25,7 @@ public class Rocket : MonoBehaviour
     }
 
     private void Blow() {
+        blink.SetActive(true);
         model.SetActive(false);
         Destroy(rigid);
         Destroy(GetComponent<FollowShip>());
@@ -37,11 +39,18 @@ public class Rocket : MonoBehaviour
             Debug.Log(dist);
         }
 
+        StartCoroutine(Blink());
         StartCoroutine(Destruction());
     }
     
     private IEnumerator Destruction() {
         yield return new WaitForSeconds(2.0f);
         Destroy(gameObject);
+    }
+
+    private IEnumerator Blink()
+    {
+        yield return new WaitForSeconds(1.0f);
+        blink.SetActive(false);
     }
 }
