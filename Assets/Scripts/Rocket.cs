@@ -24,7 +24,6 @@ public class Rocket : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.layer == 9 && !bHasCollided)
             Blow();
-        }
     }
 
     private void Blow() {
