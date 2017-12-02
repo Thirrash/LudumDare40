@@ -13,8 +13,8 @@ public class ShipBallaster : MonoBehaviour
     private float massSum = 0.0f;
     private Quaternion prevRotation = Quaternion.identity;
     private Quaternion goal;
-    private float sumCurrHp = 0.0f;
-    private float sumMaxHp = 0.0f;
+    public float sumCurrHp = 0.0f;
+    public float sumMaxHp = 0.0f;
 
     public float MaxHp = 100.0f;
     public float CurrentHp {

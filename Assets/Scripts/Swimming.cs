@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Swimming : MonoBehaviour
 {
+    public float sila;
     public float force = 1.0f;
     public float forceUp = 0.005f;
-    public float sila;
     public float torqueSide = 0.005f;
     private Rigidbody rigid;
     private ShipBallaster bal;
@@ -19,10 +19,10 @@ public class Swimming : MonoBehaviour
     void Update() {
         sila = (bal.CurrentHp / bal.MaxHp) * force;
         if (Input.GetKey(KeyCode.W)) {
-            rigid.AddForce(transform.forward * sila);
+            rigid.AddForce(-transform.forward * sila);
         }
         if (Input.GetKey(KeyCode.S)) {
-            rigid.AddForce(-transform.forward * sila);
+            rigid.AddForce(transform.forward * sila);
         }
         if (Input.GetKey(KeyCode.A)) {
             rigid.AddTorque(-Vector3.up * (bal.CurrentHp / bal.MaxHp) * torqueSide);
