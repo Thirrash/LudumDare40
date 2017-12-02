@@ -29,6 +29,7 @@ public class ChainShoot : MonoBehaviour {
     {
         forceVector = Vector3.Normalize(Target) * ForceValue;
         projectile.GetComponent<Rigidbody>().AddForce(forceVector);
+        projectile.transform.parent = null;
         loaded = false;
     }
 
@@ -38,14 +39,16 @@ public class ChainShoot : MonoBehaviour {
         if(other.gameObject == projectile)
         {
             Debug.Log("XD");
+            projectile.transform.SetParent(this.transform);
             loaded = true;
+            projectile.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
     }
 
 	void Update ()
     {
         var mouseWheelDir = Input.GetAxis("Mouse ScrollWheel");
-        if(mouseWheelDir < 0)
+        if(!loaded && mouseWheelDir < 0)
         {
             Vector3 toBase = transform.position - projectile.transform.position;
             toBase = Vector3.Normalize(toBase);
