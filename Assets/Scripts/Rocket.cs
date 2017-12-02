@@ -36,15 +36,19 @@ public class Rocket : MonoBehaviour
         Collider[] floaters = Physics.OverlapSphere(transform.position, explosionRange, 1 << 9, QueryTriggerInteraction.Collide);
         foreach (Collider c in floaters) {
             float dist = (c.transform.position - transform.position).magnitude;
+            float dmg = Mathf.Clamp(dist / explosionRange, 0.0f, 1.0f);
+
             Ballast bal = c.GetComponent<Ballast>();
-            if (bal != null)
-                bal.CurrentHp -= damage * dist / explosionRange;
+            if (bal != null) {
+                bal.CurrentHp -= damage * dmg * dmg;
+                Debug.Log("Ballast: " + (damage * dmg * dmg));
+            }
 
             ShipBallaster shipBal = c.GetComponent<ShipBallaster>();
             if (shipBal != null) {
-                shipBal.CurrentHp -= damage * Mathf.Clamp(dist / explosionRange, 0.0f, 1.0f);
+                shipBal.CurrentHp -= damage * (1.0f - shipBal.sumCurrHp / shipBal.sumMaxHp) * (1.0f - shipBal.sumCurrHp / shipBal.sumMaxHp);
+                Debug.Log("ShipBal damage: " + (damage * (1.0f - shipBal.sumCurrHp / shipBal.sumMaxHp) * (1.0f - shipBal.sumCurrHp / shipBal.sumMaxHp)));
             }
-            Debug.Log(c.gameObject.name + "|" + (damage * dist / explosionRange));
         }
 
         StartCoroutine(Blink());
