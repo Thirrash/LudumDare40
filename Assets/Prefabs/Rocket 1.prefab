@@ -120,7 +120,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4659615509728884}
   - component: {fileID: 33324209891735524}
-  - component: {fileID: 135235545960618328}
   - component: {fileID: 23210993794006024}
   m_Layer: 8
   m_Name: RocketR
@@ -451,7 +450,7 @@ Transform:
   m_GameObject: {fileID: 1548654837642338}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 4843304656362488}
   m_RootOrder: 0
@@ -1171,7 +1170,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1318,18 +1317,7 @@ MonoBehaviour:
   explosionRange: 2
   explosion: {fileID: 1989315170574996}
   model: {fileID: 1568689614156082}
---- !u!135 &135235545960618328
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1548654837642338}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  blink: {fileID: 0}
 --- !u!135 &135900941027218802
 SphereCollider:
   m_ObjectHideFlags: 1
