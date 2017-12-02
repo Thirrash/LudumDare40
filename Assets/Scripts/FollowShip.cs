@@ -14,7 +14,7 @@ public class FollowShip : MonoBehaviour
     }
 
     void Start() {
-
+        player = GameObject.FindGameObjectWithTag("Ship");
     }
 
     void LateUpdate() {
