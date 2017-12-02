@@ -2233,6 +2233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d17e2d15e10d143b66682ef4435d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxDrownSpeed: 0.5
   RotateRate: 0.2
   Length: 5
   rigidbody: {fileID: 0}
