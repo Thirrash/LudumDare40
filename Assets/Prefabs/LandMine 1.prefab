@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 114838766652956642}
   - component: {fileID: 54137108049202012}
   - component: {fileID: 65935210761269512}
+  - component: {fileID: 114326666317448558}
   m_Layer: 0
   m_Name: LandMine 1
   m_TagString: Mine
@@ -217,7 +218,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1254680666064098}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 270.90988, y: 1.5110902, z: 183.68071}
+  m_LocalPosition: {x: 262.36722, y: 7.8321953, z: 114.72688}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 4473327668673626}
@@ -858,6 +859,17 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114326666317448558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254680666064098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c573c836c5259439b2120e5dc6fede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114443963475395418
 MonoBehaviour:
   m_ObjectHideFlags: 1
