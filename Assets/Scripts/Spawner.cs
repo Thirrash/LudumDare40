@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour {
     public float minHighOffset;
     public GameObject Teren;
     public GameObject Ting;
+    private GameObject Ship;
     private Terrain ter;
     private float hardness=1;
     private List<GameObject> tings = new List<GameObject>();
@@ -18,6 +19,7 @@ public class Spawner : MonoBehaviour {
 
     private float minx, minz, maxx, maxz;
     void Start () {
+        Ship = GameObject.FindGameObjectWithTag("Transport");
         Teren = GameObject.FindGameObjectWithTag("Dno");
         ter = Teren.GetComponent<Terrain>();
         minx = ter.transform.position.x;
@@ -28,6 +30,7 @@ public class Spawner : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        hardness = Ship.GetComponent<GetStuffOnTheShip>().Points+1;
         foreach (GameObject g in GameObject.FindGameObjectsWithTag(Ting.tag))
         {
             tings.Add(g);
