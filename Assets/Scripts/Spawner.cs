@@ -45,6 +45,7 @@ public class Spawner : MonoBehaviour {
             Destroy(GameObject.FindWithTag(Ting.tag));
             break;
         }
+        Debug.Log(Ting.tag + " " + hardness + " " + tings.Count);
         tings.Clear();
     }
 }
