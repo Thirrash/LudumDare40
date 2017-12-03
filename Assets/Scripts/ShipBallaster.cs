@@ -28,7 +28,8 @@ public class ShipBallaster : MonoBehaviour
                 currentHp = MaxHp;
             }
 
-            OnHpChanged.Invoke(CurrentHp);
+            if (OnHpChanged != null)
+                OnHpChanged.Invoke(CurrentHp);
         }
     }
     [SerializeField] public float currentHp;

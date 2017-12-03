@@ -26,7 +26,9 @@ public class Ballast : MonoBehaviour
             if (currentHp > MaxHp) {
                 currentHp = MaxHp;
             }
-            OnHpChanged.Invoke(currentHp / MaxHp);
+
+            if (OnHpChanged != null)
+                OnHpChanged.Invoke(currentHp / MaxHp);
         }
     }
 
