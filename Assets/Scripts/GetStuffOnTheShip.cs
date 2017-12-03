@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class GetStuffOnTheShip : MonoBehaviour
 {
-    public float Points = 0.0f;
+    public event System.Action<float> OnMoneyChange;
+    public float Points {
+        get {
+            return points;
+        } set {
+            points = value;
+            if (OnMoneyChange != null)
+                OnMoneyChange.Invoke(points);
+        }
+    }
     public float PointsPerHp = 0.01f;
     public float PointsPerFuel = 0.0001f;
     public float PointsPerTreasure = 1.0f;
+    public float BombThreshold = 1.0f;
+
+    private float points = 0.0f;
 
     public void OnTrigger(Swimming Swi, ShipBallaster Bal) {
         foreach (ChainShoot c in HookManager.Instance.chains) {
@@ -20,12 +32,12 @@ public class GetStuffOnTheShip : MonoBehaviour
         }
 
         Points = Bal.Repair(Points / PointsPerHp) * PointsPerHp;
-        if (Points < (Swi.maxPetrol - Swi.currentPetrol) * PointsPerFuel) {
-            Swi.currentPetrol += Points / PointsPerFuel;
+        if (Points < (Swi.maxPetrol - Swi.CurrentPetrol) * PointsPerFuel) {
+            Swi.CurrentPetrol += Points / PointsPerFuel;
             Points = 0.0f;
         } else {
-            Points -= (Swi.maxPetrol - Swi.currentPetrol) * PointsPerFuel;
-            Swi.currentPetrol = Swi.maxPetrol;
+            Points -= (Swi.maxPetrol - Swi.CurrentPetrol) * PointsPerFuel;
+            Swi.CurrentPetrol = Swi.maxPetrol;
         }
     }
 

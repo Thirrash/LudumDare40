@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class Swimming : MonoBehaviour
 {
+    public event System.Action<float> OnPetrolChange;
+
+    public float CurrentPetrol {
+        get {
+            return currentPetrol;
+        } set {
+            currentPetrol = value;
+            if (OnPetrolChange != null)
+                OnPetrolChange.Invoke(currentPetrol);
+        }
+    }
+
     public float minimumMultiplier = 0.3f;
-    public float currentPetrol;
     public float maxPetrol = 1000;
     public float sila;
     public float force = 1.0f;
@@ -13,6 +24,7 @@ public class Swimming : MonoBehaviour
     public float torqueSide = 0.005f;
     private Rigidbody rigid;
     private ShipBallaster bal;
+    private float currentPetrol;
 
     void Awake() {
         rigid = GetComponent<Rigidbody>();
@@ -26,27 +38,27 @@ public class Swimming : MonoBehaviour
             sila = (Mathf.Sqrt(bal.CurrentHp / bal.MaxHp) + minimumMultiplier) * force;
             if (Input.GetKey(KeyCode.W)) {
                 rigid.AddForce(-transform.forward * sila);
-                currentPetrol -= Time.deltaTime * 2;
+                CurrentPetrol -= Time.deltaTime * 2;
             }
             if (Input.GetKey(KeyCode.S)) {
                 rigid.AddForce(transform.forward * sila);
-                currentPetrol -= Time.deltaTime * 2;
+                CurrentPetrol -= Time.deltaTime * 2;
             }
             if (Input.GetKey(KeyCode.A)) {
                 rigid.AddTorque(-Vector3.up * (Mathf.Sqrt(bal.CurrentHp / bal.MaxHp) + minimumMultiplier) * torqueSide);
-                currentPetrol -= Time.deltaTime;
+                CurrentPetrol -= Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.D)) {
                 rigid.AddTorque(Vector3.up * (Mathf.Sqrt(bal.CurrentHp / bal.MaxHp) + minimumMultiplier) * torqueSide);
-                currentPetrol -= Time.deltaTime;
+                CurrentPetrol -= Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.Space)) {
                 rigid.AddForce(Vector3.up * (Mathf.Sqrt(bal.CurrentHp / bal.MaxHp) + minimumMultiplier) * forceUp);
-                currentPetrol -= Time.deltaTime;
+                CurrentPetrol -= Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.LeftShift)) {
                 rigid.AddForce(-Vector3.up * (Mathf.Sqrt(bal.CurrentHp / bal.MaxHp) + minimumMultiplier) * forceUp);
-                currentPetrol -= Time.deltaTime;
+                CurrentPetrol -= Time.deltaTime;
             }
         }
 

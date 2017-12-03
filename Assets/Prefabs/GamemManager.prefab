@@ -19,10 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4633465155358888}
-  - component: {fileID: 114942239864270966}
-  - component: {fileID: 114009520186652656}
   - component: {fileID: 114692288343887986}
-  - component: {fileID: 114956589111039872}
   - component: {fileID: 114964972351514810}
   - component: {fileID: 114227400663331564}
   - component: {fileID: 114276319900534650}
@@ -48,22 +45,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114009520186652656
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504176970258914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHighOffset: 0.2
-  minHighOffset: 0.1
-  Teren: {fileID: 0}
-  Ting: {fileID: 1254680666064098, guid: f673cc898c6dabe489f68778b79e6689, type: 2}
-  differ: 4
 --- !u!114 &114227400663331564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,11 +56,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHighOffset: 150
-  minHighOffset: 60
+  maxHighOffset: 50
+  minHighOffset: 20
   Teren: {fileID: 0}
   Ting: {fileID: 1620630286414618, guid: 9437dec3b4db71a458c7c38dfdb9aa23, type: 2}
-  differ: 30
+  differ: 6
 --- !u!114 &114276319900534650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,11 +72,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHighOffset: 0.5
-  minHighOffset: 0
+  maxHighOffset: 15
+  minHighOffset: 14
   Teren: {fileID: 0}
   Ting: {fileID: 1233877223409172, guid: 1a33599ba8dc33e46ad964751ecc7c12, type: 2}
-  differ: 20
+  differ: 8
 --- !u!114 &114393593076137536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,10 +89,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHighOffset: 1.5
-  minHighOffset: 0.8
+  minHighOffset: 1
   Teren: {fileID: 0}
   Ting: {fileID: 1730675412092378, guid: 549114a0b02985944adb1586d2630384, type: 2}
-  differ: 10
+  differ: 6
 --- !u!114 &114692288343887986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,7 +108,7 @@ MonoBehaviour:
   minHighOffset: 40
   Teren: {fileID: 0}
   Ting: {fileID: 1559071835733642, guid: 69bf6cb1a768b2f41b97fa0d6c2521fe, type: 2}
-  differ: 5
+  differ: 2
 --- !u!114 &114901485932071426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,40 +124,7 @@ MonoBehaviour:
   minHighOffset: 0.1
   Teren: {fileID: 0}
   Ting: {fileID: 1614399745825996, guid: 45ed51457ada3ff45a3a2ee97722c30a, type: 2}
-  differ: 20
---- !u!114 &114942239864270966
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504176970258914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e6c3acb8ccc15c409d8160c507e7961, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketPrefab: {fileID: 1766538687249154, guid: 8ea7f10d6d05ff94c9adffe9c17e75b2,
-    type: 2}
-  SpawnOffset: 2
-  spawnRange:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
---- !u!114 &114956589111039872
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504176970258914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHighOffset: 80
-  minHighOffset: 40
-  Teren: {fileID: 0}
-  Ting: {fileID: 1555015459845376, guid: 7c3a2a84ad996824b8ffc229234fdf57, type: 2}
-  differ: 6
+  differ: 5
 --- !u!114 &114964972351514810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHighOffset: 100
-  minHighOffset: 60
+  maxHighOffset: 50
+  minHighOffset: 20
   Teren: {fileID: 0}
   Ting: {fileID: 1612490752121554, guid: fdc6de9936f99784fa4cb87d57e1037f, type: 2}
-  differ: 50
+  differ: 2
