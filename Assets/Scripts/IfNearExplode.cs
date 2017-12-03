@@ -9,6 +9,7 @@ public class IfNearExplode : MonoBehaviour
     public GameObject Ship;
     public GameObject Explosives;
     public float range;
+    private bool hasExploded = false;
     // Use this for initialization
     void Start()
     {
@@ -19,8 +20,9 @@ public class IfNearExplode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(Ship.transform.position, transform.position) < range)
+        if (Vector3.Distance(Ship.transform.position, transform.position) < range && !hasExploded)
         {
+            hasExploded = true;
             Explode();
         }
     }
