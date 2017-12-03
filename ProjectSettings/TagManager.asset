@@ -17,6 +17,8 @@ TagManager:
   - Octopus
   - Point
   - Wall
+  - Rock
+  - Corals
   layers:
   - Default
   - TransparentFX
