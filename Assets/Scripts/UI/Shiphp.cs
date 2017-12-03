@@ -12,10 +12,11 @@ public class Shiphp : MonoBehaviour
     // Use this for initialization
     void Start() {
         Ship.OnHpChanged += OnChange;
-        OnChange();
+        OnChange(Ship.CurrentHp);
     }
 
     private void OnChange(float Value) {
-        image.fillAmount = 
+        image.fillAmount = Value / Ship.MaxHp;
+        text.text = Value.ToString("F0") + " / " + Ship.MaxHp.ToString("F0");
     }
 }
