@@ -15,7 +15,6 @@ public class ShipBallaster : MonoBehaviour
     private Quaternion goal;
     public float sumCurrHp = 0.0f;
     public float sumMaxHp = 0.0f;
-
     public float MaxHp = 100.0f;
     public float CurrentHp {
         get { return currentHp; }
@@ -27,7 +26,7 @@ public class ShipBallaster : MonoBehaviour
             }
         }
     }
-    [SerializeField] private float currentHp;
+    [SerializeField] public float currentHp;
 
     void Start() {
         CurrentHp = MaxHp;
