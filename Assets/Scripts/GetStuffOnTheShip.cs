@@ -2,19 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GetStuffOnTheShip : MonoBehaviour {
+public class GetStuffOnTheShip : MonoBehaviour
+{
+    public float Points = 0.0f;
+    public float PointsPerHp = 0.01f;
+    public float PointsPerFuel = 0.0001f;
+    public float PointsPerTreasure = 1.0f;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void OnTrigger(Swimming Swi, ShipBallaster Bal) {
+        foreach (ChainShoot c in HookManager.Instance.chains) {
+            if (c.bPicked) {
+                Points += PointsPerTreasure;
+                c.bPicked = false;
+                c.DestroyChain();
+                HookManager.Instance.readiness[HookManager.Instance.chains.IndexOf(c)] = false;
+            }
+        }
 
-    private void OnTriggerEnter(Collider other){
-        
+        Points = Bal.Repair(Points / PointsPerHp) * PointsPerHp;
+        if (Points < (Swi.maxPetrol - Swi.currentPetrol) * PointsPerFuel) {
+            Swi.currentPetrol += Points / PointsPerFuel;
+            Points = 0.0f;
+        } else {
+            Points -= (Swi.maxPetrol - Swi.currentPetrol) * PointsPerFuel;
+            Swi.currentPetrol = Swi.maxPetrol;
+        }
+    }
+
+    void Start() {
+
+    }
+
+    void Update() {
+
+    }
+
+    private void OnTriggerEnter(Collider other) {
+
     }
 }

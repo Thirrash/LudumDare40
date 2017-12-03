@@ -22,11 +22,34 @@ public class ShipBallaster : MonoBehaviour
             currentHp = value;
             if (currentHp < 0.0f) {
                 currentHp = 0.0f;
-                GetComponent<Collider>().enabled = false;
             }
         }
     }
     [SerializeField] public float currentHp;
+
+    public float Repair(float HpPool) {
+        foreach (Ballast b in ballasts) {
+            if (b.MaxHp - b.CurrentHp > HpPool) {
+                b.CurrentHp += HpPool;
+                return 0.0f;
+            }
+
+            b.CurrentHp = b.MaxHp;
+            HpPool -= (b.MaxHp - b.CurrentHp);
+        }
+
+        if (HpPool <= 0.0001f) {
+            return 0.0f;
+        }
+
+        if (MaxHp - CurrentHp > HpPool) {
+            CurrentHp += HpPool;
+            return 0.0f;
+        }
+
+        CurrentHp = MaxHp;
+        return (HpPool - MaxHp + CurrentHp);
+    }
 
     void Start() {
         CurrentHp = MaxHp;

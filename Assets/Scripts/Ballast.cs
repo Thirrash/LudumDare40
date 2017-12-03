@@ -15,6 +15,10 @@ public class Ballast : MonoBehaviour
             if (currentHp < 0.0f) {
                 currentHp = 0.0f;
                 GetComponent<Collider>().enabled = false;
+            } else {
+                if (GetComponent<Collider>().enabled == false) {
+                    GetComponent<Collider>().enabled = true;
+                }
             }
         }
     }

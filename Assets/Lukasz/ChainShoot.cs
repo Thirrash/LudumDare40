@@ -21,6 +21,14 @@ public class ChainShoot : MonoBehaviour
     public Coroutine routine = null;
     private List<GameObject> chains = new List<GameObject>();
 
+    public void DestroyChain() {
+        foreach (GameObject g in chains) {
+            Destroy(g);
+        }
+
+        chains.Clear();
+    }
+
     public void Shoot() {
         if (!bPicked) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -78,11 +86,7 @@ public class ChainShoot : MonoBehaviour
 
         yield return new WaitForSeconds(2.0f);
         if (!bPickedWrapper()) {
-            foreach (GameObject g in chains) {
-                Destroy(g);
-            }
-
-            chains.Clear();
+            DestroyChain();
         } else {
             HookManager.Instance.SetReadiness(this);
         }

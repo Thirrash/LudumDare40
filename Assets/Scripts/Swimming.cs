@@ -51,4 +51,10 @@ public class Swimming : MonoBehaviour
 
         //rigid.rotation = Quaternion.Euler(rigid.rotation.eulerAngles.x, rigid.rotation.eulerAngles.y, 0.0f);
     }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == "Transport") {
+            other.GetComponent<GetStuffOnTheShip>().OnTrigger(this, bal);
+        }
+    }
 }
