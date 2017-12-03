@@ -36,8 +36,8 @@ public class IfNearExplode : MonoBehaviour
             Ballast bal = c.GetComponent<Ballast>();
             if (bal != null)
             {
-                bal.CurrentHp -= damage * dmg * dmg;
-                Debug.Log("Ballast: " + (damage * dmg * dmg));
+                bal.CurrentHp -= damage * dmg;
+                Debug.Log("Ballast: " + (damage * dmg ));
             }
 
             ShipBallaster shipBal = c.GetComponent<ShipBallaster>();

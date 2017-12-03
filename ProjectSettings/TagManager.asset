@@ -12,6 +12,10 @@ TagManager:
   - FxTemporaire
   - Dno
   - Mine
+  - Smoke
+  - Bomb
+  - Octopus
+  - Point
   layers:
   - Default
   - TransparentFX
@@ -23,8 +27,8 @@ TagManager:
   - 
   - Radar
   - Floater
-  - 
-  - 
+  - Treasure
+  - Ship
   - 
   - 
   - 
