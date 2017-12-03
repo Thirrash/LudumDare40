@@ -23,6 +23,9 @@ public class Ballast : MonoBehaviour
                 }
             }
 
+            if (currentHp > MaxHp) {
+                currentHp = MaxHp;
+            }
             OnHpChanged.Invoke(currentHp / MaxHp);
         }
     }
