@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour {
     public GameObject Ting;
     private GameObject Ship;
     private Terrain ter;
-    private float hardness=1;
+    private int hardness=1;
     private List<GameObject> tings = new List<GameObject>();
     int size = 0;
     public int differ = 3;
@@ -30,7 +30,8 @@ public class Spawner : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        hardness = Ship.GetComponent<GetStuffOnTheShip>().Points+1;
+        hardness = (int)(2*Ship.GetComponent<GetStuffOnTheShip>().Points)+1;
+        Debug.Log(hardness + " : " + differ);
         foreach (GameObject g in GameObject.FindGameObjectsWithTag(Ting.tag))
         {
             tings.Add(g);

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23694749990422774}
   - component: {fileID: 54752302341671864}
   - component: {fileID: 65126150415938922}
+  - component: {fileID: 114631101073579744}
   m_Layer: 0
   m_Name: wagon 1
   m_TagString: Wagon
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1730675412092378}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 390.97458, y: 0.023094177, z: 427.11853}
+  m_LocalPosition: {x: 268.2675, y: 7.3783693, z: 117.14946}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,3 +114,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.07197681, y: 0.020000005, z: 0.022574553}
   m_Center: {x: -0.000120826066, y: 0, z: -0.0047318963}
+--- !u!114 &114631101073579744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730675412092378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c573c836c5259439b2120e5dc6fede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
