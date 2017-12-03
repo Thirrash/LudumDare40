@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
     
-    public float highOffset;
+    public float maxHighOffset;
+    public float minHighOffset;
     public GameObject Teren;
     public GameObject Ting;
     private Terrain ter;
     private float hardness=1;
-    public List<GameObject> tings = new List<GameObject>();
+    private List<GameObject> tings = new List<GameObject>();
     int size = 0;
     public int differ = 3;
     private float[] points = new float[2];
@@ -33,7 +34,7 @@ public class Spawner : MonoBehaviour {
         }
         while (tings.Count < differ* hardness)
         {
-            Instantiate(Ting, new Vector3(Random.Range(minx,maxx),ter.transform.position.y+highOffset, Random.Range(minz, maxz)), Quaternion.identity);
+            Instantiate(Ting, new Vector3(Random.Range(minx,maxx),ter.transform.position.y+Random.Range(minHighOffset, maxHighOffset), Random.Range(minz, maxz)), Quaternion.identity);
             break;
         }
         while (tings.Count > differ * hardness)
