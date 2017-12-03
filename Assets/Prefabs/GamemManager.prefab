@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114956589111039872}
   - component: {fileID: 114964972351514810}
   - component: {fileID: 114227400663331564}
+  - component: {fileID: 114276319900534650}
   m_Layer: 0
   m_Name: GamemManager
   m_TagString: Untagged
@@ -77,6 +78,22 @@ MonoBehaviour:
   Teren: {fileID: 0}
   Ting: {fileID: 1620630286414618, guid: 9437dec3b4db71a458c7c38dfdb9aa23, type: 2}
   differ: 30
+--- !u!114 &114276319900534650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504176970258914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHighOffset: 0.5
+  minHighOffset: 0
+  Teren: {fileID: 0}
+  Ting: {fileID: 1233877223409172, guid: 1a33599ba8dc33e46ad964751ecc7c12, type: 2}
+  differ: 20
 --- !u!114 &114692288343887986
 MonoBehaviour:
   m_ObjectHideFlags: 1
