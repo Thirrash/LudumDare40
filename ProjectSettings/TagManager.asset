@@ -18,6 +18,8 @@ TagManager:
   - Point
   - Wall
   - Transport
+  - Rock
+  - Corals
   layers:
   - Default
   - TransparentFX
