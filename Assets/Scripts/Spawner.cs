@@ -31,7 +31,7 @@ public class Spawner : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         hardness = (int)(2*Ship.GetComponent<GetStuffOnTheShip>().Points)+1;
-        Debug.Log(hardness + " : " + differ);
+        //Debug.Log(hardness + " : " + differ);
         foreach (GameObject g in GameObject.FindGameObjectsWithTag(Ting.tag))
         {
             tings.Add(g);
@@ -46,7 +46,7 @@ public class Spawner : MonoBehaviour {
             Destroy(GameObject.FindWithTag(Ting.tag));
             break;
         }
-        Debug.Log(Ting.tag + " " + hardness + " " + tings.Count);
+        //Debug.Log(Ting.tag + " " + hardness + " " + tings.Count);
         tings.Clear();
     }
 }
