@@ -6,6 +6,7 @@ public class HookTrigger : MonoBehaviour {
 
     public delegate void TreasureGrabbed(GameObject a);
     public event TreasureGrabbed OnTreasureGrabbedEvent;
+    public ChainShoot chainer;
 
 	void Start () {
         OnTreasureGrabbedEvent += OnTreasureGrabbed;
@@ -15,13 +16,23 @@ public class HookTrigger : MonoBehaviour {
 		
 	}
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider col)
     {
-        Debug.Log("chuj");
-        if (other.gameObject.tag == "Tresure")
+        if (col.gameObject.tag == "Tresure")
         {
+            if (col.gameObject.GetComponent<Treasure>().bAlreadyPicked)
+                return;
+
+            col.gameObject.GetComponent<Treasure>().bAlreadyPicked = true;
+            //col.transform.localPosition += new Vector3(0.0f, 4.5f, 0.0f);
+            col.gameObject.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
+            Debug.Log(gameObject.name);
             GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-            OnTreasureGrabbedEvent.Invoke(other.gameObject);
+
+            if (transform.childCount > 0)
+                Destroy(transform.GetChild(0).gameObject);
+            OnTreasureGrabbedEvent.Invoke(col.gameObject);
+            chainer.bPicked = true;
         }
     }
 
