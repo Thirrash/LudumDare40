@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 114009520186652656}
   - component: {fileID: 114692288343887986}
   - component: {fileID: 114956589111039872}
+  - component: {fileID: 114964972351514810}
+  - component: {fileID: 114227400663331564}
   m_Layer: 0
   m_Name: GamemManager
   m_TagString: Untagged
@@ -54,11 +56,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highOffset: 0.01
+  maxHighOffset: 0.2
+  minHighOffset: 0.1
   Teren: {fileID: 0}
   Ting: {fileID: 1254680666064098, guid: f673cc898c6dabe489f68778b79e6689, type: 2}
-  tings: []
   differ: 4
+--- !u!114 &114227400663331564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504176970258914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHighOffset: 150
+  minHighOffset: 60
+  Teren: {fileID: 0}
+  Ting: {fileID: 1620630286414618, guid: 9437dec3b4db71a458c7c38dfdb9aa23, type: 2}
+  differ: 30
 --- !u!114 &114692288343887986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,10 +88,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highOffset: 50
+  maxHighOffset: 80
+  minHighOffset: 40
   Teren: {fileID: 0}
   Ting: {fileID: 1559071835733642, guid: 69bf6cb1a768b2f41b97fa0d6c2521fe, type: 2}
-  tings: []
   differ: 5
 --- !u!114 &114942239864270966
 MonoBehaviour:
@@ -103,8 +121,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highOffset: 50
+  maxHighOffset: 80
+  minHighOffset: 40
   Teren: {fileID: 0}
   Ting: {fileID: 1555015459845376, guid: 7c3a2a84ad996824b8ffc229234fdf57, type: 2}
-  tings: []
   differ: 6
+--- !u!114 &114964972351514810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504176970258914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHighOffset: 100
+  minHighOffset: 60
+  Teren: {fileID: 0}
+  Ting: {fileID: 1612490752121554, guid: fdc6de9936f99784fa4cb87d57e1037f, type: 2}
+  differ: 50
