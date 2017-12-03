@@ -18,7 +18,7 @@ public class BarManager : MonoBehaviour {
         if (Choice)
         {
             Max = Ting.GetComponent<ShipBallaster>().MaxHp;
-            Cur = Ting.GetComponent<ShipBallaster>().currentHp;
+            Cur = Ting.GetComponent<ShipBallaster>().CurrentHp;
         }
         else
         {
