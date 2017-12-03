@@ -16,6 +16,7 @@ TagManager:
   - Bomb
   - Octopus
   - Point
+  - Wall
   layers:
   - Default
   - TransparentFX
