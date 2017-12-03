@@ -54,7 +54,7 @@ public class ChainShoot : MonoBehaviour {
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if(Physics.Raycast(ray, out hit))
+            if(Physics.Raycast(ray, out hit, 10000, 1 << 12))
             {
                 Shoot(hit.point-transform.position);
             }

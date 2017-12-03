@@ -15,7 +15,7 @@ public class MouseLightControll : MonoBehaviour {
 	void Update () {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100000, 1 << 10))
+        if (Physics.Raycast(ray, out hit, 100000, 1 << 12))
         {
             transform.forward = hit.point - transform.position;
         }
