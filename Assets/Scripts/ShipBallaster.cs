@@ -24,6 +24,8 @@ public class ShipBallaster : MonoBehaviour
             currentHp = value;
             if (currentHp < 0.0f) {
                 currentHp = 0.0f;
+            } else if (currentHp > MaxHp) {
+                currentHp = MaxHp;
             }
 
             OnHpChanged.Invoke(CurrentHp);

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Shiphp : MonoBehaviour
 {
     public ShipBallaster Ship;
-    private Image image;
-    private Text text;
+    public Image image;
+    public Text text;
 
     // Use this for initialization
     void Start() {
