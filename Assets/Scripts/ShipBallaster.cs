@@ -90,7 +90,7 @@ public class ShipBallaster : MonoBehaviour
             sumCurrHp += b.CurrentHp;
         }
 
-        float multiplier = ((sumMaxHp - sumCurrHp) * (sumMaxHp - sumCurrHp) / sumMaxHp / sumMaxHp);
+        float multiplier = ((sumMaxHp - sumCurrHp) / sumMaxHp);
         total *= multiplier;
         goal = Quaternion.Euler(0.0f, rigidbody.rotation.eulerAngles.y, 0.0f) * Quaternion.Euler(total);
 

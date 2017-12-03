@@ -7,6 +7,7 @@ public class HookTrigger : MonoBehaviour {
     public delegate void TreasureGrabbed(GameObject a);
     public event TreasureGrabbed OnTreasureGrabbedEvent;
     public ChainShoot chainer;
+    public bool bHasTreasure = false;
 
 	void Start () {
         OnTreasureGrabbedEvent += OnTreasureGrabbed;
@@ -20,12 +21,14 @@ public class HookTrigger : MonoBehaviour {
     {
         if (col.gameObject.tag == "Tresure")
         {
-            if (col.gameObject.GetComponent<Treasure>().bAlreadyPicked)
+            if (col.gameObject.GetComponent<Treasure>().bAlreadyPicked || bHasTreasure)
                 return;
 
+            bHasTreasure = true;
             col.gameObject.GetComponent<Treasure>().bAlreadyPicked = true;
             //col.transform.localPosition += new Vector3(0.0f, 4.5f, 0.0f);
-            col.gameObject.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
+            if (col.gameObject.GetComponent<HingeJoint>() != null)
+                col.gameObject.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
             Debug.Log(gameObject.name);
             GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
 

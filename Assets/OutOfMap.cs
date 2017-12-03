@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OutOfMap : MonoBehaviour {
-    
+    public Text trext;
     private Collider playerCollider;
     private ShipBallaster ballaster;
     public float Damage;
@@ -26,6 +27,7 @@ public class OutOfMap : MonoBehaviour {
         {
             Debug.Log("Out of map!");
             StartCoroutine("BeatTheShitOutOfHim");
+            trext.enabled = true;
         }
     }
 
@@ -35,6 +37,7 @@ public class OutOfMap : MonoBehaviour {
         {
             Debug.Log("Back on map...");
             StopCoroutine("BeatTheShitOutOfHim");
+            trext.enabled = false;
         }
     }
 

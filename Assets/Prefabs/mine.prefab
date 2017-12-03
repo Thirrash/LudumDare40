@@ -744,7 +744,7 @@ MonoBehaviour:
   typ: 0
   dg: 0
   damage: 2
-  explosionRange: 4
+  explosionRange: 3
   explosion: {fileID: 1436006476902202}
   model: {fileID: 0}
 --- !u!114 &114596071082825314

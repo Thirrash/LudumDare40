@@ -500,7 +500,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1766538687249154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.314594, y: 50.619713, z: 64.26557}
+  m_LocalPosition: {x: 216.03943, y: 9.97992, z: 229.90326}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4005233741041436}
@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 3
-  Force: 10
+  Force: 4
 --- !u!114 &114206720531862350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1281,8 +1281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d88e92cfd4023764dbffed908933bccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
-  MaxRotation: 8
+  speed: 0.07
+  MaxRotation: 20
   player: {fileID: 0}
 --- !u!114 &114775606225828194
 MonoBehaviour:
@@ -1297,8 +1297,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typ: 1
   dg: 0
-  damage: 4
-  explosionRange: 2
+  damage: 1.5
+  explosionRange: 1.5
   explosion: {fileID: 1989315170574996}
   model: {fileID: 1568689614156082}
 --- !u!135 &135900941027218802

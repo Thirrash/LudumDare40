@@ -921,7 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7855e4d6fd7944088847c9c6719a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 1.5
   explosionRange: 5
   Ship: {fileID: 0}
   Explosives: {fileID: 1973266763972292}
