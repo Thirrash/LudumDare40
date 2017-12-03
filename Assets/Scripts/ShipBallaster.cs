@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShipBallaster : MonoBehaviour
 {
+    public event System.Action<float> OnHpChanged;
+
     public float MaxDrownSpeed = 0.5f;
     public float RotateRate = 0.4f;
     public float Length = 5.0f;
@@ -23,6 +25,8 @@ public class ShipBallaster : MonoBehaviour
             if (currentHp < 0.0f) {
                 currentHp = 0.0f;
             }
+
+            OnHpChanged.Invoke(CurrentHp);
         }
     }
     [SerializeField] public float currentHp;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ballast : MonoBehaviour
 {
+    public event System.Action<float> OnHpChanged;
+
     public float MaxRotX = 0.0f;
     public float MaxRotZ = 0.0f;
     public float Mass = 1.0f;
@@ -20,6 +22,8 @@ public class Ballast : MonoBehaviour
                     GetComponent<Collider>().enabled = true;
                 }
             }
+
+            OnHpChanged.Invoke(currentHp / MaxHp);
         }
     }
 

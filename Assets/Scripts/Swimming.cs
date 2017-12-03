@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Swimming : MonoBehaviour
 {
+    public float minimumMultiplier = 0.3f;
     public float currentPetrol;
     public float maxPetrol = 1000;
     public float sila;
@@ -22,7 +23,7 @@ public class Swimming : MonoBehaviour
     void Update() {
         if (currentPetrol>0)
         {
-            sila = (bal.CurrentHp / bal.MaxHp) * force;
+            sila = (Mathf.Sqrt(bal.CurrentHp / bal.MaxHp) + minimumMultiplier) * force;
             if (Input.GetKey(KeyCode.W)) {
                 rigid.AddForce(-transform.forward * sila);
                 currentPetrol -= Time.deltaTime * 2;
@@ -32,19 +33,19 @@ public class Swimming : MonoBehaviour
                 currentPetrol -= Time.deltaTime * 2;
             }
             if (Input.GetKey(KeyCode.A)) {
-                rigid.AddTorque(-Vector3.up * (bal.CurrentHp / bal.MaxHp) * torqueSide);
+                rigid.AddTorque(-Vector3.up * (Mathf.Sqrt(bal.CurrentHp / bal.MaxHp) + minimumMultiplier) * torqueSide);
                 currentPetrol -= Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.D)) {
-                rigid.AddTorque(Vector3.up * (bal.CurrentHp / bal.MaxHp) * torqueSide);
+                rigid.AddTorque(Vector3.up * (Mathf.Sqrt(bal.CurrentHp / bal.MaxHp) + minimumMultiplier) * torqueSide);
                 currentPetrol -= Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.Space)) {
-                rigid.AddForce(Vector3.up * (bal.CurrentHp / bal.MaxHp) * forceUp);
+                rigid.AddForce(Vector3.up * (Mathf.Sqrt(bal.CurrentHp / bal.MaxHp) + minimumMultiplier) * forceUp);
                 currentPetrol -= Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.LeftShift)) {
-                rigid.AddForce(-Vector3.up * (bal.CurrentHp / bal.MaxHp) * forceUp);
+                rigid.AddForce(-Vector3.up * (Mathf.Sqrt(bal.CurrentHp / bal.MaxHp) + minimumMultiplier) * forceUp);
                 currentPetrol -= Time.deltaTime;
             }
         }
