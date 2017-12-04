@@ -23,13 +23,17 @@ public class ChainShoot : MonoBehaviour
 
     public void DestroyChain() {
         ProjectileTemplate.GetComponent<CharacterJoint>().connectedBody = null;
-        foreach (Rigidbody rg in ProjectileTemplate.GetComponentsInChildren<Rigidbody>()) {
-            rg.drag = 0.3f;
-            rg.angularDrag = 0.1f;
-            rg.useGravity = true;
+        foreach (Joint rg in ProjectileTemplate.GetComponentsInChildren<Joint>()) {
+            rg.connectedBody = null;
         }
 
-
+        foreach (Rigidbody rg in ProjectileTemplate.GetComponentsInChildren<Rigidbody>()) {
+            rg.drag = 0.0f;
+            rg.angularDrag = 0.0f;
+            rg.useGravity = true;
+            rg.mass = 10.0f;
+            rg.transform.parent = null;
+        }
 
         StartCoroutine(Destroy(5.0f));
     }

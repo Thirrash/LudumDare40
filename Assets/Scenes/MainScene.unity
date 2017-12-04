@@ -633,7 +633,7 @@ MonoBehaviour:
   minHighOffset: 10
   Teren: {fileID: 0}
   Ting: {fileID: 1555015459845376, guid: 7c3a2a84ad996824b8ffc229234fdf57, type: 2}
-  differ: 70
+  differ: 35
 --- !u!114 &254118400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,7 +650,7 @@ MonoBehaviour:
   minHighOffset: 4
   Teren: {fileID: 0}
   Ting: {fileID: 1254680666064098, guid: f673cc898c6dabe489f68778b79e6689, type: 2}
-  differ: 40
+  differ: 10
 --- !u!114 &254118401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9914,7 +9914,7 @@ Prefab:
     - target: {fileID: 114964972351514810, guid: 85ca2caa373d20a46b15e10ab4bef50b,
         type: 2}
       propertyPath: differ
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 114276319900534650, guid: 85ca2caa373d20a46b15e10ab4bef50b,
         type: 2}
@@ -9934,14 +9934,37 @@ Prefab:
     - target: {fileID: 114901485932071426, guid: 85ca2caa373d20a46b15e10ab4bef50b,
         type: 2}
       propertyPath: differ
-      value: 80
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114227400663331564, guid: 85ca2caa373d20a46b15e10ab4bef50b, type: 2}
     - {fileID: 114393593076137536, guid: 85ca2caa373d20a46b15e10ab4bef50b, type: 2}
     - {fileID: 114692288343887986, guid: 85ca2caa373d20a46b15e10ab4bef50b, type: 2}
+    - {fileID: 114276319900534650, guid: 85ca2caa373d20a46b15e10ab4bef50b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 85ca2caa373d20a46b15e10ab4bef50b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1316530032 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1504176970258914, guid: 85ca2caa373d20a46b15e10ab4bef50b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1316530031}
+--- !u!114 &1316530033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1316530032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Parent: {fileID: 0}
+  maxHighOffset: 40
+  minHighOffset: 5
+  Teren: {fileID: 0}
+  Ting: {fileID: 1929782549595706, guid: 558360168c0e40e4eb71cffdfe8b8255, type: 2}
+  differ: 15
 --- !u!1 &1329376519
 GameObject:
   m_ObjectHideFlags: 0
