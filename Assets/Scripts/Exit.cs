@@ -13,11 +13,11 @@ public class Exit : MonoBehaviour
     }
 
     public void Restart() {
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene(1);
     }
 
     public void Quit() {
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.LoadScene(0);
     }
 
 	// Use this for initialization

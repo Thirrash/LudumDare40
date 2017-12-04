@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipBallaster : MonoBehaviour
 {
     public event System.Action<float> OnHpChanged;
+    public Text GameOver;
 
     public float MaxDrownSpeed = 0.5f;
     public float RotateRate = 0.4f;
@@ -24,6 +26,8 @@ public class ShipBallaster : MonoBehaviour
             currentHp = value;
             if (currentHp < 0.0f) {
                 currentHp = 0.0f;
+                GameOver.enabled = true;
+                Time.timeScale = 0.0f;
             } else if (currentHp > MaxHp) {
                 currentHp = MaxHp;
             }
@@ -80,6 +84,8 @@ public class ShipBallaster : MonoBehaviour
                 ((b.transform.position.z > transform.position.z) ? 1.0f : -1.0f) *
                 Mathf.Abs(b.transform.localPosition.z) / sumAbsZ;
         }
+
+        GameOver.enabled = false;
     }
 
     void Update() {

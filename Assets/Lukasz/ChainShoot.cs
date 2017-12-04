@@ -33,6 +33,7 @@ public class ChainShoot : MonoBehaviour
             rg.useGravity = true;
             rg.mass = 10.0f;
             rg.transform.parent = null;
+            Destroy(rg.gameObject, 5.0f);
         }
 
         StartCoroutine(Destroy(5.0f));
