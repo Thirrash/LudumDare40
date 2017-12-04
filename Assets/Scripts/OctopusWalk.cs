@@ -2,44 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OctopusWalk : MonoBehaviour {
-    
+public class OctopusWalk : MonoBehaviour
+{
     private List<GameObject> Points = new List<GameObject>();
     public GameObject p;
-    public float speed=0.5f;
-    bool walking;
-    private void Start()
-    {
-        walking = false;
+    public float speed = 0.5f;
+
+    private void Start() {
+        GameObject holder = GameObject.FindGameObjectWithTag("Point");
+        foreach (Transform g in holder.GetComponentsInChildren<Transform>()) {
+            if (g != holder.transform) {
+                Points.Add(g.gameObject);
+            }
+        }
+
+        p = (Points[Random.Range(0, Points.Count - 1)]);
     }
-    // Update is called once per frame
+
     void Update() {
-        if (Points.Count == 0)
-        {
-            foreach(GameObject q in GameObject.FindGameObjectsWithTag(p.tag))
-            {
-                Points.Add(q);
-            }
-        }
+        float step = speed * Time.deltaTime;
+        Vector3 targetDir = (p.transform.position - transform.position).normalized;
+        transform.Translate((targetDir) * step);
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
+        transform.rotation = Quaternion.LookRotation(newDir);
 
-        if (walking)
-        {
-            float step = speed * Time.deltaTime;
-            Vector3 targetDir = p.transform.position - transform.position;
-            transform.Translate((targetDir) * step);
-            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
-            Debug.DrawRay(transform.position, newDir, Color.red);
-            transform.rotation = Quaternion.LookRotation(newDir);
-
-            if (Vector3.Distance(transform.position, p.transform.position)<3)
-            {
-                walking = false;
-            }
+        if (Vector3.Distance(transform.position, p.transform.position) < 3) {
+            p = (Points[Random.Range(0, Points.Count - 1)]);
         }
-        else
-        {
-            p = (Points[Random.Range(0, Points.Count-1)]);
-            walking=true;
-        }
-	}
+    }
 }

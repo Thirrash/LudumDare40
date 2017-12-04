@@ -14,6 +14,6 @@ public class ShipDepth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Img.gameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, Mathf.Lerp(233.0f, -31.0f, Ship.transform.position.y / 100.0f));
+        Img.gameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, Mathf.Lerp(-31.0f, 233.0f, Ship.transform.position.y / 100.0f));
 	}
 }

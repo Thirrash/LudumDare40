@@ -22,11 +22,16 @@ public class ChainShoot : MonoBehaviour
     private List<GameObject> chains = new List<GameObject>();
 
     public void DestroyChain() {
-        foreach (GameObject g in chains) {
-            Destroy(g);
+        ProjectileTemplate.GetComponent<CharacterJoint>().connectedBody = null;
+        foreach (Rigidbody rg in ProjectileTemplate.GetComponentsInChildren<Rigidbody>()) {
+            rg.drag = 0.3f;
+            rg.angularDrag = 0.1f;
+            rg.useGravity = true;
         }
 
-        chains.Clear();
+
+
+        StartCoroutine(Destroy(5.0f));
     }
 
     public void Shoot() {
@@ -45,6 +50,15 @@ public class ChainShoot : MonoBehaviour
             Destroy(projectile);
             loaded = true;
         }
+    }
+
+    private IEnumerator Destroy(float time) {
+        yield return new WaitForSeconds(time);
+        foreach (GameObject g in chains) {
+            Destroy(g);
+        }
+
+        chains.Clear();
     }
 
     private IEnumerator ShootChain(Vector3 aDirection, System.Func<bool> bPickedWrapper) {

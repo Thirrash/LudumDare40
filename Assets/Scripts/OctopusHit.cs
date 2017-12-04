@@ -3,18 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OctopusHit : MonoBehaviour {
-    public GameObject Ink;
+    public GameObject Mesh;
+    public ParticleSystem Particle;
+    public float Time = 5.0f;
+
     private void Start()
     {
-        Ink.SetActive(false);
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Ink.SetActive(true);
+        if (other.gameObject.tag == "Ship") {
+            Particle.Play();
+            Mesh.SetActive(false);
+            Destroy(gameObject, Time);
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        Ink.SetActive(false);
+        
     }
 }

@@ -38,8 +38,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1504176970258914}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 52.433193, y: 50.563183, z: 51.816093}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,10 +57,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHighOffset: 50
-  minHighOffset: 20
+  minHighOffset: 10
   Teren: {fileID: 0}
   Ting: {fileID: 1620630286414618, guid: 9437dec3b4db71a458c7c38dfdb9aa23, type: 2}
-  differ: 6
+  differ: 50
 --- !u!114 &114276319900534650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -88,8 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d19ba296c020cf429a4986ec6ed6861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHighOffset: 1.5
-  minHighOffset: 1
+  maxHighOffset: 25
+  minHighOffset: 10
   Teren: {fileID: 0}
   Ting: {fileID: 1730675412092378, guid: 549114a0b02985944adb1586d2630384, type: 2}
   differ: 6
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHighOffset: 50
-  minHighOffset: 20
+  minHighOffset: 10
   Teren: {fileID: 0}
   Ting: {fileID: 1612490752121554, guid: fdc6de9936f99784fa4cb87d57e1037f, type: 2}
   differ: 2

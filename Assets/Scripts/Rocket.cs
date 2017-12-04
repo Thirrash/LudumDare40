@@ -11,7 +11,6 @@ public class Rocket : MonoBehaviour
     public float explosionRange = 3.0f;
     public GameObject explosion;
     public GameObject model;
-    public static GameObject blink;
     private Rigidbody rigid;
     private bool bHasCollided = false;
 
@@ -21,7 +20,6 @@ public class Rocket : MonoBehaviour
 
     private void Start() {
         dg = false;
-        blink = GameObject.FindGameObjectWithTag("Blink");
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -56,21 +54,12 @@ public class Rocket : MonoBehaviour
             }
         }
 
-        StartCoroutine(Blink());
         StartCoroutine(Destruction());
     }
-    private IEnumerator Blink()
-    {
-        if(dg)
-            blink.GetComponent<RawImage>().color = new Color(255, 255, 255, 1);
-        yield return new WaitForSeconds(1.0f);
 
-    }
     private IEnumerator Destruction() {
         float time = 0.0f;
         while (time < 2.0f) {
-            if(dg)
-                blink.GetComponent<RawImage>().color = new Color(255, 255, 255, (1.0f - time / 2.0f));
             time += Time.deltaTime;
             yield return null;
         }
